@@ -176,10 +176,49 @@
     <section id="settings" aria-labelledby="settings-h">
       <h2 id="settings-h">Settings</h2>
 
+      <h3>Spending cap</h3>
       <div class="field">
         <label for="weekly-cap">Weekly spending cap (RWF)</label>
         <input type="text" id="weekly-cap" inputmode="decimal" aria-describedby="weekly-cap-err">
         <p id="weekly-cap-err" class="error" role="alert"></p>
+      </div>
+
+      <h3>Currency</h3>
+      <p class="hint">Amounts are stored in RWF. Choose a display currency and set the rates manually.</p>
+      <div class="field">
+        <label for="display-currency">Display currency</label>
+        <select id="display-currency">
+          <option value="RWF">RWF (base)</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="rate-usd">1 RWF = ? USD</label>
+        <input type="text" id="rate-usd" inputmode="decimal" aria-describedby="rate-usd-err">
+        <p id="rate-usd-err" class="error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="rate-eur">1 RWF = ? EUR</label>
+        <input type="text" id="rate-eur" inputmode="decimal" aria-describedby="rate-eur-err">
+        <p id="rate-eur-err" class="error" role="alert"></p>
+      </div>
+
+      <h3>Categories</h3>
+      <div class="field">
+        <label for="categories">Categories (comma-separated)</label>
+        <input type="text" id="categories" aria-describedby="categories-err">
+        <p id="categories-err" class="error" role="alert"></p>
+      </div>
+
+      <h3>Data</h3>
+      <div class="actions">
+        <button type="button" id="export-btn">Export JSON</button>
+        <label class="file-btn">
+          Import JSON
+          <input type="file" id="import-file" accept="application/json,.json">
+        </label>
+        <button type="button" id="seed-btn">Load sample data</button>
       </div>
     </section>
 
