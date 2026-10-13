@@ -296,6 +296,42 @@ mark {
   font-weight: bold;
 }
 
+.hint {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  color: var(--muted-color);
+}
+
+.file-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  color: var(--blue);
+  background-color: transparent;
+  border: 1px solid var(--blue);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.file-btn input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.file-btn:focus-within {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+#settings h3 {
+  margin-top: 16px;
+}
+
+#settings .actions {
+  flex-wrap: wrap;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 1.6rem;

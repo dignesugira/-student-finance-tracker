@@ -1,0 +1,14 @@
+[
+  {"id":"txn_0001","description":"Lunch at cafeteria","amount":1500,"category":"Food","date":"2026-10-13","createdAt":"2026-10-13T08:12:00.000Z","updatedAt":"2026-10-13T08:12:00.000Z"},
+  {"id":"txn_0002","description":"Chemistry textbook (2nd ed.)","amount":45000,"category":"Books","date":"2026-10-12","createdAt":"2026-10-12T10:00:00.000Z","updatedAt":"2026-10-12T10:00:00.000Z"},
+  {"id":"txn_0003","description":"Moto to campus","amount":700,"category":"Transport","date":"2026-10-11","createdAt":"2026-10-11T07:30:00.000Z","updatedAt":"2026-10-11T07:30:00.000Z"},
+  {"id":"txn_0004","description":"Coffee with friends","amount":2500.5,"category":"Entertainment","date":"2026-10-10","createdAt":"2026-10-10T16:45:00.000Z","updatedAt":"2026-10-10T16:45:00.000Z"},
+  {"id":"txn_0005","description":"Tuition instalment","amount":850000,"category":"Fees","date":"2026-10-01","createdAt":"2026-10-01T09:00:00.000Z","updatedAt":"2026-10-01T09:00:00.000Z"},
+  {"id":"txn_0006","description":"Printing 3 pages","amount":0.5,"category":"Other","date":"2026-10-09","createdAt":"2026-10-09T13:20:00.000Z","updatedAt":"2026-10-09T13:20:00.000Z"},
+  {"id":"txn_0007","description":"Leap day tea","amount":800,"category":"Food","date":"2024-02-29","createdAt":"2024-02-29T15:00:00.000Z","updatedAt":"2024-02-29T15:00:00.000Z"},
+  {"id":"txn_0008","description":"New Year's Eve dinner","amount":12000,"category":"Food","date":"2025-12-31","createdAt":"2025-12-31T20:00:00.000Z","updatedAt":"2025-12-31T20:00:00.000Z"},
+  {"id":"txn_0009","description":"Bus pass January","amount":15000,"category":"Transport","date":"2026-01-01","createdAt":"2026-01-01T08:00:00.000Z","updatedAt":"2026-01-01T08:00:00.000Z"},
+  {"id":"txn_0010","description":"Gym membership","amount":20000,"category":"Self-care","date":"2026-10-05","createdAt":"2026-10-05T11:00:00.000Z","updatedAt":"2026-10-06T09:30:00.000Z"},
+  {"id":"txn_0011","description":"Tea & snacks <late study>","amount":1200.75,"category":"Food","date":"2026-10-08","createdAt":"2026-10-08T22:10:00.000Z","updatedAt":"2026-10-08T22:10:00.000Z"},
+  {"id":"txn_0012","description":"Zero-cost campus event","amount":0,"category":"Entertainment","date":"2026-10-07","createdAt":"2026-10-07T18:00:00.000Z","updatedAt":"2026-10-07T18:00:00.000Z"}
+]
