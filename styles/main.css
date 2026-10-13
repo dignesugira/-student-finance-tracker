@@ -37,6 +37,11 @@ h2 {
   font-size: 1.2rem;
 }
 
+h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
 a {
   color: var(--blue);
 }
@@ -232,6 +237,65 @@ mark {
   color: inherit;
 }
 
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  background-color: var(--background);
+  border-radius: var(--radius);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--muted-color);
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 120px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 12px;
+}
+
+.bar {
+  position: relative;
+  flex: 1;
+  min-height: 2px;
+  background-color: var(--blue);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+}
+
+.bar span {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  color: var(--muted-color);
+  white-space: nowrap;
+}
+
+.over {
+  color: var(--error-color);
+  font-weight: bold;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 1.6rem;
@@ -245,6 +309,10 @@ mark {
 
   main {
     padding: 24px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .toolbar {

@@ -27,3 +27,37 @@ export function renderTable(list, re) {
 
   count.textContent = `${list.length} transaction${list.length === 1 ? '' : 's'} shown`;
 }
+
+export function renderStats(stats, cap) {
+  document.getElementById('stat-count').textContent = stats.count;
+  document.getElementById('stat-total').textContent = `${stats.total.toFixed(2)} RWF`;
+  document.getElementById('stat-top').textContent = stats.topCategory;
+  document.getElementById('stat-week').textContent = `${stats.weekTotal.toFixed(2)} RWF`;
+
+  const chart = document.getElementById('chart');
+  chart.innerHTML = '';
+  const max = Math.max(...stats.days.map(d => d.total), 1);
+  for (const day of stats.days) {
+    const bar = document.createElement('div');
+    bar.className = 'bar';
+    bar.style.height = `${(day.total / max) * 100}%`;
+    bar.title = `${day.date}: ${day.total.toFixed(2)} RWF`;
+    const label = document.createElement('span');
+    label.textContent = day.date.slice(5); // MM-DD
+    bar.appendChild(label);
+    chart.appendChild(bar);
+  }
+
+  const ok = document.getElementById('cap-ok');
+  const over = document.getElementById('cap-over');
+  if (!cap) {
+    ok.textContent = 'No weekly cap set.';
+    over.textContent = '';
+  } else if (stats.weekTotal <= cap) {
+    ok.textContent = `${(cap - stats.weekTotal).toFixed(2)} RWF remaining of your ${cap.toFixed(2)} RWF weekly cap.`;
+    over.textContent = '';
+  } else {
+    ok.textContent = '';
+    over.textContent = `Over your weekly cap by ${(stats.weekTotal - cap).toFixed(2)} RWF.`;
+  }
+}

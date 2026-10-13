@@ -1,7 +1,8 @@
-import { validateRecord } from './validators.js';
+import { validateRecord, validateAmount } from './validators.js';
 import * as state from './state.js';
 import { compileRegex, matches } from './search.js';
-import { renderTable } from './ui.js';
+import { renderTable, renderStats } from './ui.js';
+import { computeStats } from './stats.js';
 
 const form = document.getElementById('txn-form');
 const idField = document.getElementById('txn-id');
@@ -13,6 +14,10 @@ const searchErr = document.getElementById('search-err');
 const caseBox = document.getElementById('case-insensitive');
 const sortSelect = document.getElementById('sort');
 const tbody = document.getElementById('txn-body');
+const capInput = document.getElementById('weekly-cap');
+const capErr = document.getElementById('weekly-cap-err');
+
+let weeklyCap = 0;
 
 function showErrors(errors) {
   for (const [field, msg] of Object.entries(errors)) {
@@ -26,8 +31,10 @@ function refresh() {
   searchErr.textContent = searchInput.value && !re ? 'Invalid regular expression.' : '';
 
   const [key, direction] = sortSelect.value.split('-');
-  const list = state.sortRecords(state.getAll().filter(r => matches(r, re)), key, direction);
+  const all = state.getAll();
+  const list = state.sortRecords(all.filter(r => matches(r, re)), key, direction);
   renderTable(list, re);
+  renderStats(computeStats(all), weeklyCap);
 }
 
 function resetForm() {
@@ -63,7 +70,6 @@ form.addEventListener('submit', (e) => {
 });
 
 form.addEventListener('reset', () => {
-  // let the native reset run first, then clear our extras
   setTimeout(resetForm, 0);
   status.textContent = '';
 });
@@ -89,6 +95,17 @@ tbody.addEventListener('click', (e) => {
     if (!confirm(`Delete "${record.description}"?`)) return;
     state.remove(record.id);
     status.textContent = `Deleted "${record.description}".`;
+    refresh();
+  }
+});
+
+capInput.addEventListener('input', () => {
+  const v = capInput.value.trim();
+  const msg = v ? validateAmount(v) : '';
+  capErr.textContent = msg;
+  capInput.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  if (!msg) {
+    weeklyCap = v ? Number(v) : 0;
     refresh();
   }
 });
