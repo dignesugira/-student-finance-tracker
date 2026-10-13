@@ -56,3 +56,7 @@ then open `http://localhost:8000`. Opening `index.html` directly from the file s
 ## Running tests
 
 Open `http://localhost:8000/tests.html`. Each assertion prints PASS or FAIL, with a summary at the bottom.
+
+## demo video link
+
+https://www.loom.com/share/c272c7e5dbf443d5921603c8913ea072
