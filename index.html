@@ -30,7 +30,46 @@
 
     <section id="transactions" aria-labelledby="transactions-h">
       <h2 id="transactions-h">Transactions</h2>
-      <p>Records will appear here.</p>
+
+      <div class="toolbar">
+        <div class="field">
+          <label for="search">Search (regex)</label>
+          <input type="text" id="search" placeholder="e.g. (coffee|tea)" aria-describedby="search-err">
+          <p id="search-err" class="error" role="alert"></p>
+        </div>
+
+        <label class="checkbox">
+          <input type="checkbox" id="case-insensitive" checked>
+          Case-insensitive
+        </label>
+
+        <div class="field">
+          <label for="sort">Sort by</label>
+          <select id="sort">
+            <option value="date-desc">Date (newest first)</option>
+            <option value="date-asc">Date (oldest first)</option>
+            <option value="description-asc">Description (A–Z)</option>
+            <option value="description-desc">Description (Z–A)</option>
+            <option value="amount-desc">Amount (high–low)</option>
+            <option value="amount-asc">Amount (low–high)</option>
+          </select>
+        </div>
+      </div>
+
+      <p id="result-count" role="status" aria-live="polite"></p>
+
+      <table id="txn-table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="txn-body"></tbody>
+      </table>
     </section>
 
    

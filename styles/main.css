@@ -154,6 +154,84 @@ button[type="reset"] {
   color: var(--blue);
 }
 
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field select {
+  padding: 8px;
+  font: inherit;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: var(--white);
+}
+
+/* mobile: each row becomes a card */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  position: absolute;
+  left: -9999px;
+}
+
+tbody tr {
+  display: block;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+}
+
+td {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+td::before {
+  content: attr(data-label);
+  font-weight: bold;
+  color: var(--muted-color);
+}
+
+td.empty {
+  justify-content: center;
+  color: var(--muted-color);
+}
+
+td.empty::before {
+  content: none;
+}
+
+td button {
+  padding: 4px 10px;
+  font-size: 0.9rem;
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: var(--error-color);
+  border-color: var(--error-color);
+}
+
+mark {
+  background-color: #ffe58a;
+  color: inherit;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 1.6rem;
@@ -167,6 +245,39 @@ button[type="reset"] {
 
   main {
     padding: 24px;
+  }
+
+  .toolbar {
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .toolbar .field {
+    margin-bottom: 0;
+  }
+
+  thead {
+    position: static;
+  }
+
+  tbody tr {
+    display: table-row;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  th,
+  td {
+    display: table-cell;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  td::before {
+    content: none;
   }
 }
 
