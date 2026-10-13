@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Validator tests</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 1rem; }
+    .pass { color: #116b2a; } .fail { color: #b42318; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Validator tests</h1>
+  <ul id="results"></ul>
+  <p id="summary"></p>
+
+  <script type="module">
+    import { validateDescription, validateAmount, validateCategory, validateDate }
+      from './scripts/validators.js';
+
+    const results = document.getElementById('results');
+    let passed = 0, total = 0;
+
+    function assert(name, actual, expected) {
+      total++;
+      const ok = actual === expected;
+      if (ok) passed++;
+      const li = document.createElement('li');
+      li.className = ok ? 'pass' : 'fail';
+      li.textContent = `${ok ? 'PASS' : 'FAIL'}: ${name}` +
+        (ok ? '' : ` (got "${actual}", expected "${expected}")`);
+      results.appendChild(li);
+    }
+
+    // description
+    assert('valid description', validateDescription('Lunch at cafeteria'), '');
+    assert('leading space rejected', validateDescription(' Lunch'), 'No leading or trailing spaces.');
+    assert('trailing space rejected', validateDescription('Lunch '), 'No leading or trailing spaces.');
+    assert('duplicate word rejected', validateDescription('coffee coffee shop'), 'Remove the repeated word.');
+    assert('repeated non-adjacent words allowed', validateDescription('tea then tea'), '');
+
+    // amount
+    assert('integer amount', validateAmount('1500'), '');
+    assert('two decimals', validateAmount('12.50'), '');
+    assert('zero allowed', validateAmount('0'), '');
+    assert('leading zero rejected', validateAmount('007'), 'Use a number like 1500 or 12.50.');
+    assert('three decimals rejected', validateAmount('1.234'), 'Use a number like 1500 or 12.50.');
+    assert('negative rejected', validateAmount('-5'), 'Use a number like 1500 or 12.50.');
+
+    // category
+    assert('single word', validateCategory('Food'), '');
+    assert('hyphenated', validateCategory('Self-care'), '');
+    assert('digits rejected', validateCategory('Food2'), 'Letters, spaces and hyphens only.');
+    assert('trailing hyphen rejected', validateCategory('Food-'), 'Letters, spaces and hyphens only.');
+
+    // date
+    assert('valid date', validateDate('2026-10-13'), '');
+    assert('month 13 rejected', validateDate('2026-13-01'), 'Use the format YYYY-MM-DD.');
+    assert('day 32 rejected', validateDate('2026-01-32'), 'Use the format YYYY-MM-DD.');
+    assert('slash format rejected', validateDate('13/10/2026'), 'Use the format YYYY-MM-DD.');
+
+    document.getElementById('summary').textContent = `${passed} / ${total} passed`;
+  </script>
+</body>
+</html>

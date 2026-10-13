@@ -33,10 +33,82 @@
       <p>Records will appear here.</p>
     </section>
 
-    <section id="add" aria-labelledby="add-h">
-      <h2 id="add-h">Add transaction</h2>
-      <p>Form will appear here.</p>
-    </section>
+   
+<section id="add" aria-labelledby="add-h">
+  <h2 id="add-h">Add Transaction</h2>
+
+  <form id="txn-form" novalidate>
+    <input type="hidden" id="txn-id" name="id">
+
+    <div class="field">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        required
+        aria-describedby="description-err"
+      >
+      <p id="description-err" class="error" role="alert"></p>
+    </div>
+
+    <div class="field">
+      <label for="amount">Amount (RWF)</label>
+      <input
+        type="text"
+        id="amount"
+        name="amount"
+        inputmode="decimal"
+        placeholder="e.g. 2500.00"
+        required
+        aria-describedby="amount-err"
+      >
+      <p id="amount-err" class="error" role="alert"></p>
+    </div>
+
+    <div class="field">
+      <label for="category">Category</label>
+      <input
+        type="text"
+        id="category"
+        name="category"
+        list="category-list"
+        required
+        aria-describedby="category-err"
+      >
+
+      <datalist id="category-list">
+        <option value="Food"></option>
+        <option value="Books"></option>
+        <option value="Transport"></option>
+        <option value="Entertainment"></option>
+        <option value="Fees"></option>
+        <option value="Other"></option>
+      </datalist>
+
+      <p id="category-err" class="error" role="alert"></p>
+    </div>
+
+    <div class="field">
+      <label for="date">Transaction Date</label>
+      <input
+        type="text"
+        id="date"
+        name="date"
+        placeholder="YYYY-MM-DD"
+        required
+        aria-describedby="date-err"
+      >
+      <p id="date-err" class="error" role="alert"></p>
+    </div>
+
+    <div class="actions">
+      <button type="submit" id="save-btn">Save Transaction</button>
+      <button type="reset" id="cancel-btn">Clear Form</button>
+    </div>
+  </form>
+</section>
+
 
     <section id="settings" aria-labelledby="settings-h">
       <h2 id="settings-h">Settings</h2>
@@ -46,7 +118,7 @@
     <section id="about" aria-labelledby="about-h">
       <h2 id="about-h">About</h2>
       <p>A simple tracker for student expenses, built with vanilla HTML, CSS and JavaScript.</p>
-      <p>GitHub: <a href="https://github.com/dignesugira">dignesugira</a> · Email: <a href="mailto:you@example.com">you@example.com</a></p>
+      <p>GitHub: <a href="https://github.com/dignesugira">dignesugira</a> · Email: <a href="mailto:d.sugira@alustudent.com">d.sugira@alustudent.com</a></p>
     </section>
   </main>
 

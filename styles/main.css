@@ -109,6 +109,51 @@ section {
   font-size: 0.9rem;
 }
 
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.field input {
+  padding: 8px;
+  font: inherit;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+}
+
+.field input[aria-invalid="true"] {
+  border-color: var(--error-color);
+}
+
+.error {
+  margin: 0;
+  min-height: 1.2em;
+  font-size: 0.85rem;
+  color: var(--error-color);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  padding: 8px 16px;
+  font: inherit;
+  color: var(--white);
+  background-color: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+button[type="reset"] {
+  background-color: transparent;
+  color: var(--blue);
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 1.6rem;
