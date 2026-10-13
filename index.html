@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Finance Tracker</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <h1>Student Finance Tracker</h1>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#transactions">Transactions</a></li>
+        <li><a href="#add">Add</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="dashboard" aria-labelledby="dashboard-h">
+      <h2 id="dashboard-h">Dashboard</h2>
+      <p>Stats will appear here.</p>
+    </section>
+
+    <section id="transactions" aria-labelledby="transactions-h">
+      <h2 id="transactions-h">Transactions</h2>
+      <p>Records will appear here.</p>
+    </section>
+
+    <section id="add" aria-labelledby="add-h">
+      <h2 id="add-h">Add transaction</h2>
+      <p>Form will appear here.</p>
+    </section>
+
+    <section id="settings" aria-labelledby="settings-h">
+      <h2 id="settings-h">Settings</h2>
+      <p>Currency, cap and import/export will appear here.</p>
+    </section>
+
+    <section id="about" aria-labelledby="about-h">
+      <h2 id="about-h">About</h2>
+      <p>A simple tracker for student expenses, built with vanilla HTML, CSS and JavaScript.</p>
+      <p>GitHub: <a href="https://github.com/dignesugira">dignesugira</a> · Email: <a href="mailto:you@example.com">you@example.com</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p role="status" id="status" aria-live="polite"></p>
+    <p>&copy; 2026 Digne</p>
+  </footer>
+
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
